@@ -1,0 +1,38 @@
+# MFML Assignment @ Abhay Gurung-202100207
+
+#Program to check whether a matrix is singular or not using Python and REF
+import sympy
+import numpy as np
+  
+R = int(input("Enter the number of rows:"))
+C = int(input("Enter the number of columns:"))
+matrix = []
+print("Enter the entries rowwise:")
+  
+# For user input
+for i in range(R):    
+    a =[]
+    for j in range(C):     
+         a.append(int(input()))
+    matrix.append(a)
+  
+print("Your matrix:")
+for i in range(R):
+    for j in range(C):
+        print(matrix[i][j], end = " ")
+    print()
+
+print("RREF Form:")
+print(sympy.Matrix(matrix).rref())
+  
+# find the rank of matrix
+print("Rank of matrix :",sympy.Matrix(matrix).rank())
+
+#Finding whether matrix is singular
+if(R==C):
+    if (sympy.Matrix(matrix).rank()!=R):
+        print("IT IS A SINGULAR MATRIX")
+    else:
+        print("IT IS NOT A SINGULAR MATRIX")
+else:
+    print("IT IS NOT A SQUARE MATRIX")
